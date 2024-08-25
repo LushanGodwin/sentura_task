@@ -131,16 +131,6 @@ const UserForm = ({ onSubmit, initialData = {} }) => {
       />
       <input
         type="text"
-        name="metadata"
-        placeholder="Metadata (key=value, comma-separated)"
-        value={formData.metadata}
-        onChange={(e) =>
-          setFormData({ ...formData, metadata: Object.fromEntries(e.target.value.split(',').map(s => s.split('='))) })
-        }
-        className="border p-2 rounded w-full"
-      />
-      <input
-        type="text"
         name="tags"
         placeholder="Tags (comma-separated)"
         value={formData.tags}
