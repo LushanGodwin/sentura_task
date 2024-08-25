@@ -12,11 +12,7 @@ const UserForm = ({ onSubmit, initialData = {} }) => {
     phoneNumber: initialData.phoneNumber || '',
     comment: initialData.comment || '',
     picture: initialData.picture || '',
-    directory: initialData.directory || '',
-    metadata: initialData.metadata || {},
-    tags: initialData.tags || [],
-    isSuspended: initialData.isSuspended || false,
-    isBot: initialData.isBot || false,
+
   });
 
   const handleChange = (e) => {
@@ -121,40 +117,7 @@ const UserForm = ({ onSubmit, initialData = {} }) => {
         onChange={handleChange}
         className="border p-2 rounded w-full"
       />
-      <input
-        type="text"
-        name="directory"
-        placeholder="Directory"
-        value={formData.directory}
-        onChange={handleChange}
-        className="border p-2 rounded w-full"
-      />
-      <input
-        type="text"
-        name="tags"
-        placeholder="Tags (comma-separated)"
-        value={formData.tags}
-        onChange={(e) => setFormData({ ...formData, tags: e.target.value.split(',') })}
-        className="border p-2 rounded w-full"
-      />
-      <label className="flex items-center space-x-2">
-        <input
-          type="checkbox"
-          name="isSuspended"
-          checked={formData.isSuspended}
-          onChange={handleChange}
-        />
-        <span>Suspended</span>
-      </label>
-      <label className="flex items-center space-x-2">
-        <input
-          type="checkbox"
-          name="isBot"
-          checked={formData.isBot}
-          onChange={handleChange}
-        />
-        <span>Bot</span>
-      </label>
+
       <button
         onClick={handleSubmit}
         type="submit"

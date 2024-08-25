@@ -6,6 +6,6 @@ import UserForm from './component/UserForm.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <UserForm />
+    <App />
   </StrictMode>,
 )
