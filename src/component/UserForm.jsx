@@ -24,9 +24,19 @@ const UserForm = ({ onSubmit, initialData = {} }) => {
     setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(formData);
+          const res = await fetch("https://c53887dc9cdc41b8be6f44a501eabf81.weavy.io/api/users", {
+           method: "POST",
+           headers: {
+             "Content-Type": "application/json",
+             "Authorization": "Bearer wys_1CGz1105PkGlAkJrfGQH85yHl16pQJ3j9fWX",
+ 
+          },
+          body: JSON.stringify(formData),
+         });
+         const data = await res.json();
+        console.log(data);
   };
 
   return (
@@ -156,6 +166,7 @@ const UserForm = ({ onSubmit, initialData = {} }) => {
         <span>Bot</span>
       </label>
       <button
+        onClick={handleSubmit}
         type="submit"
         className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700"
       >
